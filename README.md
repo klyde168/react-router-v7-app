@@ -1,19 +1,3 @@
-# Welcome to React Router!
-
-A modern, production-ready template for building full-stack React applications using React Router.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
-
-## Features
-
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
-
 ## Getting Started
 
 ### Installation
@@ -22,6 +6,14 @@ Install the dependencies:
 
 ```bash
 npm install
+```
+
+### 創建新的 React Router 應用程式
+
+要創建一個新的 React Router 應用程式，請使用以下命令：
+
+```bash
+npx create-react-router@latest my-react-router-app
 ```
 
 ### Development
@@ -34,54 +26,15 @@ npm run dev
 
 Your application will be available at `http://localhost:5173`.
 
-## Building for Production
+## 路由架構
 
-Create a production build:
+本應用程式的路由定義在 `app/routes.ts` 中。以下是路由結構的概述：
 
-```bash
-npm run build
-```
+- **頂層路由：**
+  - `/about`：渲染 `about.tsx` 的內容。
+  
+- **儀表板路由（嵌套在 `/dashboard` 之下）：**
+  - `/dashboard/home`：渲染儀表板主頁，來自 `dashboard-home.tsx`。
+  - `/dashboard/settings`：渲染儀表板設定頁面，來自 `dashboard-settings.tsx`。
 
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+這種嵌套路由結構允許應用程式進行模組化組織，其中儀表板擁有自己的子路由，並在其中佈局內渲染。
